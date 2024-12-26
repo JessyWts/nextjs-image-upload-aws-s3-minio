@@ -1,5 +1,17 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+Basic upload multi images on Docker S3 minio aka (AWS S3)
+
+[Minio Js Dock](https://min.io/docs/minio/linux/developers/javascript/minio-javascript.html)
+
+### Screenshot
+
+![alt Home](screenshot/home.png)
+
+![alt Gallery](screenshot/gallery.png)
+
+![alt Minio](screenshot/minio_dashboard.png)
+
 ## Getting Started
 
 First, run the development server:
@@ -12,6 +24,68 @@ yarn dev
 pnpm dev
 # or
 bun dev
+```
+
+### - Environment Variables
+
+```text
+AWS_ACCESS_KEY_ID=minio_login_OR_access_key_id
+AWS_SECRET_ACCESS_KEY=minio_password_OR_secret_key
+AWS_DEFAULT_REGION=eu-east-1
+AWS_BUCKET_NAME=name_of_your_bucket
+AWS_BUCKET_IMAGE_URL=http://localhost:9000/name_of_your_bucket/
+AWS_SHARE_TMP_URL=http://localhost:8900/api/v1/download-shared-object/
+AWS_ENDPOINT=localhost
+AWS_PORT=9000
+AWS_USE_PATH_STYLE_ENDPOINT=true
+```
+
+### - Docker
+
+[Minio Docker image](https://hub.docker.com/r/minio/minio)
+
+Start minio server
+
+```bash
+docker compose up
+```
+
+Stop minio server
+
+```bash
+docker compose down
+```
+
+### - Make
+
+Start nextjs app dev mode
+
+```bash
+make dev
+```
+
+Start nextjs app
+
+```bash
+make start
+```
+
+Build nextjs app
+
+```bash
+make build
+```
+
+Stop minio
+
+```bash
+make minio
+```
+
+Stop minio
+
+```bash
+make stop_minio
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
